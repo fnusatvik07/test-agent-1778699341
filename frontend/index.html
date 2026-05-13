@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent - General Question Answerer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Agent</h1>
+            <p class="role">General Question Answerer</p>
+            <div class="connection-section">
+                <div class="backend-url-input">
+                    <label for="backendUrl">Backend URL:</label>
+                    <input type="text" id="backendUrl" placeholder="http://localhost:8001" value="http://localhost:8001">
+                    <button onclick="connectToBackend()">Connect</button>
+                </div>
+                <div class="status" id="status">[CONNECTING] Connecting...</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="chat-container">
+                <div class="messages" id="messages">
+                    <div class="message assistant">
+                        <div class="content">
+                            Hello! I'm AI Agent, your General Question Answerer. How can I help you today?
+                        </div>
+                    </div>
+                </div>
+
+                <form class="input-form" id="chatForm">
+                    <div class="input-group">
+                        <textarea
+                            id="messageInput"
+                            placeholder="Type your message here..."
+                            rows="3"
+                        ></textarea>
+                        <button type="submit" id="sendButton">
+                            <span class="send-text">Send</span>
+                            <span class="loading" style="display: none;">[LOADING]</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <aside class="sidebar">
+                <div class="files-section">
+                    <h3>Generated Files</h3>
+                    <div class="files-list" id="filesList">
+                        <p class="no-files">No files generated yet</p>
+                    </div>
+                    <button class="refresh-files" onclick="loadFiles()">[REFRESH] Refresh</button>
+                </div>
+
+                <div class="agent-info">
+                    <h3>Agent Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Tools:</strong>
+                            <span></span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Backend:</strong>
+                            <span>Port 8001</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
